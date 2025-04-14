@@ -1,117 +1,194 @@
-// Мобильное меню
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const nav = document.querySelector('nav ul');
+// Utility functions
+const $ = selector => document.querySelector(selector);
+const $$ = selector => document.querySelectorAll(selector);
 
-mobileMenuBtn.addEventListener('click', () => {
-    nav.classList.toggle('show');
-});
+// Mobile menu
+const initMobileMenu = () => {
+    const menuButton = $('.nav-toggle');
+    const menu = $('.nav-menu');
 
-// Плавная прокрутка
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollView({
-            behavior: 'smooth'
+    menuButton.addEventListener('click', () => {
+        const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', !isExpanded);
+        menu.classList.toggle('active');
+    });
+};
+
+// Smooth scroll
+const initSmoothScroll = () => {
+    $$('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+            e.preventDefault();
+            const target = $(anchor.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     });
+};
+
+// Form validation and submission
+const initContactForm = () => {
+    const form = $('.contact-form');
+    if (!form) return;
+
+    const validateField = (field) => {
+        const value = field.value.trim();
+        const name = field.name;
+        let error = '';
+
+        switch (name) {
+            case 'name':
+                if (!value) error = 'Пожалуйста, введите ваше имя';
+                break;
+            case 'phone':
+                const phoneRegex = /^\+?[\d\s-]{10,}$/;
+                if (!phoneRegex.test(value)) error = 'Пожалуйста, введите корректный номер телефона';
+                break;
+            case 'email':
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (value && !emailRegex.test(value)) error = 'Пожалуйста, введите корректный email';
+                break;
+        }
+
+        return error;
+    };
+
+    const showFieldError = (field, error) => {
+        const errorElement = field.parentElement.querySelector('.error-message');
+        if (error) {
+            if (!errorElement) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.textContent = error;
+                field.parentElement.appendChild(errorDiv);
+            } else {
+                errorElement.textContent = error;
+            }
+            field.setAttribute('aria-invalid', 'true');
+        } else {
+            if (errorElement) errorElement.remove();
+            field.removeAttribute('aria-invalid');
+        }
+    };
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        let isValid = true;
+        const formData = new FormData(form);
+
+        // Validate all fields
+        form.querySelectorAll('input, textarea').forEach(field => {
+            const error = validateField(field);
+            showFieldError(field, error);
+            if (error) isValid = false;
+        });
+
+        if (!isValid) return;
+
+        try {
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Отправка...';
+
+            // Здесь должен быть ваш код отправки формы на сервер
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Имитация отправки
+
+            // Показываем сообщение об успехе
+            showNotification('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
+            form.reset();
+        } catch (error) {
+            showNotification('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Отправить';
+        }
+    });
+};
+
+// Notification system
+const showNotification = (message, type = 'success') => {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+
+    document.body.appendChild(notification);
+
+    // Trigger animation
+    requestAnimationFrame(() => {
+        notification.classList.add('show');
+    });
+
+    // Remove after 5 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+};
+
+// Cookie consent
+const initCookieConsent = () => {
+    const cookieConsent = $('.cookie-consent');
+    const acceptButton = $('.accept-cookies');
+
+    if (localStorage.getItem('cookieConsent')) {
+        cookieConsent?.remove();
+        return;
+    }
+
+    acceptButton?.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'true');
+        cookieConsent.remove();
+    });
+};
+
+// Intersection Observer for animations
+const initAnimations = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('aos-animate');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    $$('[data-aos]').forEach(element => {
+        observer.observe(element);
+    });
+};
+
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
+    initSmoothScroll();
+    initContactForm();
+    initCookieConsent();
+    initAnimations();
 });
 
-// Слайдер отзывов
-const testimonialSlider = document.querySelector('.testimonials-slider');
-const testimonials = document.querySelectorAll('.testimonial');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-let currentSlide = 0;
-
-function showSlide(index) {
-    testimonialSlider.style.transform = `translateX(-${index * 100}%)`;
+// Handle service worker for PWA
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(error => {
+            console.error('ServiceWorker registration failed:', error);
+        });
+    });
 }
 
-prevBtn.addEventListener('click', () => {
-    currentSlide = Math.max(currentSlide - 1, 0);
-    showSlide(currentSlide);
-});
-
-nextBtn.addEventListener('click', () => {
-    currentSlide = Math.min(currentSlide + 1, testimonials.length - 1);
-    showSlide(currentSlide);
-});
-
-// FAQ аккордеон
-const accordionItems = document.querySelectorAll('.accordion-item');
-
-accordionItems.forEach(item => {
-    const header = item.querySelector('.accordion-header');
-    header.addEventListener('click', () => {
-        const content = item.querySelector('.accordion-content');
-        const icon = header.querySelector('i');
-
-        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + 'px';
-        icon.classList.toggle('fa-plus');
-        icon.classList.toggle('fa-minus');
+// Lazy loading images
+if ('loading' in HTMLImageElement.prototype) {
+    $$('img[loading="lazy"]').forEach(img => {
+        img.src = img.dataset.src;
     });
-});
-
-// Форма обратной связи
-const contactForm = document.querySelector('.contact-form');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Здесь будет код отправки формы
-    alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-    contactForm.reset();
-});
-// Инициализация плавного скролла
-const scroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true,
-    smartphone: {
-        smooth: true
-    },
-    tablet: {
-        smooth: true
-    }
-});
-
-// GSAP анимации
-gsap.registerPlugin(ScrollTrigger);
-
-// Анимация заголовка
-gsap.from('.gradient-text', {
-    duration: 1.5,
-    y: 100,
-    opacity: 0,
-    ease: 'power4.out'
-});
-
-// Горизонтальный скролл для услуг
-gsap.to('.services-container', {
-    x: () => -(document.querySelector('.services-container').scrollWidth - window.innerWidth),
-    ease: 'none',
-    scrollTrigger: {
-        trigger: '.services-horizontal',
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 1,
-        pin: true
-    }
-});
-
-// Параллакс эффект для карточек
-document.querySelectorAll('.service-item').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const rotateX = (y - rect.height / 2) / 20;
-        const rotateY = (x - rect.width / 2) / 20;
-
-        card.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    });
-});
+} else {
+    // Fallback for browsers that don't support lazy loading
+    const script = document.createElement('script');
+    script.src = '/js/lazysizes.min.js';
+    document.body.appendChild(script);
+}
