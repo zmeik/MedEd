@@ -5,225 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Премиальная стоматология в Грузии - современные технологии и европейский сервис по доступным ценам">
     <meta name="keywords" content="стоматология, Грузия, имплантация, лечение зубов, стоматологический туризм">
-    <meta property="og:title" content="Dental Georgia | Премиальная стоматология в Грузии">
+    <meta property="og:title" content="Dentist GE | Премиальная стоматология в Грузии">
     <meta property="og:description" content="Современные технологии и европейский сервис по доступным ценам">
     <meta property="og:image" content="/images/og-image.jpg">
     <meta property="og:url" content="https://dentist.ge">
 
-    <title>Dental Georgia | Премиальная стоматология в Грузии</title>
+    <title>Dentist GE | Премиальная стоматология в Грузии</title>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <!-- Preload критических ресурсов -->
     <link rel="preload" href="/fonts/SpaceGrotesk-Medium.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/css/critical.css" as="style">
+    <link rel="preload" href="/css/main.css" as="style">
 
     <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Стили -->
     <link rel="stylesheet" href="/css/main.css">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Dentist",
-      "name": "Dental Georgia",
-      "image": "/images/clinic.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "ул. Коте Марджанишвили, 30",
-        "addressLocality": "Тбилиси",
-        "addressCountry": "GE"
-      },
-      "telephone": "+995 599 510 741",
-      "email": "dentistge@gmail.com"
-    }
-    </script>
 </head>
 <body>
     <!-- Header -->
-    <header class="header" role="banner">
-        <nav class="nav-container" role="navigation" aria-label="Главное меню">
-            <div class="nav-content">
-                <a href="/" class="logo" aria-label="Dental Georgia">
-                    <img src="/images/logo.svg" alt="Логотип Dental Georgia" width="150" height="40">
+    <header class="header">
+        <nav class="nav-container">
+            <div class="container nav-content">
+                <a href="/" class="logo">
+                    <img src="/images/logo.svg" alt="Dentist GE" width="150">
                 </a>
-
                 <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
-
-                <div class="nav-menu">
-                    <ul class="nav-links">
-                        <li><a href="#services" class="nav-link">Услуги</a></li>
-                        <li><a href="#prices" class="nav-link">Цены</a></li>
-                        <li><a href="#about" class="nav-link">О нас</a></li>
-                        <li><a href="#contact" class="nav-button">Связаться</a></li>
-                    </ul>
-
-                    <div class="nav-contact">
-                        <a href="tel:+995599510741" class="contact-link">
-                            <svg aria-hidden="true" class="icon"><!-- Phone icon --></svg>
-                            +995 599 510 741
-                        </a>
-                    </div>
+                <div class="nav-links">
+                    <a href="#services">Услуги</a>
+                    <a href="#prices">Цены</a>
+                    <a href="#about">О нас</a>
+                    <a href="#contact">Связаться</a>
+                    <a href="tel:+995599510741" class="phone-link">+995 599 510 741</a>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main role="main">
-        <!-- Hero Section -->
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 id="hero-title" class="gradient-text">Премиальная стоматология в Грузии</h1>
-                    <p class="hero-subtitle">Современные технологии и европейский сервис по доступным ценам</p>
-                    <div class="hero-cta">
-                        <a href="#contact" class="button button-primary">
-                            Получить консультацию
-                            <svg aria-hidden="true" class="icon"><!-- Arrow icon --></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hero-features">
-                    <div class="feature-card" data-aos="fade-up">
-                        <span class="feature-number">60%</span>
-                        <p>экономия на лечении</p>
-                    </div>
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                        <span class="feature-number">15+</span>
-                        <p>лет опыта</p>
-                    </div>
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                        <span class="feature-number">5000+</span>
-                        <p>довольных клиентов</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="services" aria-labelledby="services-title">
-            <div class="container">
-                <h2 id="services-title" class="section-title">Наши услуги</h2>
-                <div class="services-grid">
-                    <article class="service-card" data-aos="fade-up">
-                        <div class="service-image">
-                            <img src="/images/implants.jpg" alt="Имплантация зубов" loading="lazy">
-                        </div>
-                        <h3>Имплантация</h3>
-                        <p>Установка премиальных имплантов от ведущих производителей</p>
-                        <a href="#contact" class="button button-secondary">Узнать больше</a>
-                    </article>
-                    <!-- Другие карточки услуг -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Prices Section -->
-        <section id="prices" class="prices" aria-labelledby="prices-title">
-            <div class="container">
-                <h2 id="prices-title" class="section-title">Цены на услуги</h2>
-                <div class="price-calculator">
-                    <div class="price-tabs" role="tablist">
-                        <button role="tab" aria-selected="true" aria-controls="panel-1">
-                            Имплантация
-                        </button>
-                        <button role="tab" aria-selected="false" aria-controls="panel-2">
-                            Протезирование
-                        </button>
-                    </div>
-
-                    <div id="panel-1" role="tabpanel" class="price-panel active">
-                        <!-- Содержимое панели -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact" aria-labelledby="contact-title">
-            <div class="container">
-                <h2 id="contact-title" class="section-title">Свяжитесь с нами</h2>
-                <div class="contact-grid">
-                    <div class="contact-form-wrapper">
-                        <form class="contact-form" novalidate>
-                            <div class="form-group">
-                                <label for="name">Ваше имя</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Телефон</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Сообщение</label>
-                                <textarea id="message" name="message"></textarea>
-                            </div>
-                            <button type="submit" class="button button-primary">
-                                Отправить
-                            </button>
-                        </form>
-                    </div>
-
-                    <div class="contact-info">
-                        <div class="info-card">
-                            <svg aria-hidden="true" class="icon"><!-- Location icon --></svg>
-                            <h3>Адрес</h3>
-                            <p>Тбилиси, ул. Коте Марджанишвили, 30</p>
-                        </div>
-                        <div class="info-card">
-                            <svg aria-hidden="true" class="icon"><!-- Phone icon --></svg>
-                            <h3>Телефон</h3>
-                            <p>+995 599 510 741</p>
-                        </div>
-                        <div class="info-card">
-                            <svg aria-hidden="true" class="icon"><!-- Email icon --></svg>
-                            <h3>Email</h3>
-                            <p>dentistge@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer" role="contentinfo">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <div class="footer-grid">
+            <div class="hero-content">
+                <h1>Премиальная стоматология в Грузии</h1>
+                <p class="hero-subtitle">Современные технологии и европейский сервис по доступным ценам</p>
+                <a href="#contact" class="button-primary">Получить консультацию</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-value="60">0</div>
+                    <div class="stat-label">экономия на лечении</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-value="15">0</div>
+                    <div class="stat-label">лет опыта</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-value="5000">0</div>
+                    <div class="stat-label">довольных клиентов</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="/images/services/implants.jpg" alt="Имплантация">
+                    <h3>Имплантация зубов</h3>
+                    <p>Установка премиальных имплантов от ведущих производителей</p>
+                    <a href="#contact" class="button-secondary">Узнать больше</a>
+                </div>
+                <!-- Добавьте другие карточки услуг -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices Section -->
+    <section id="prices" class="prices">
+        <div class="container">
+            <h2>Цены на услуги</h2>
+            <div class="prices-tabs">
+                <button class="tab-button active" data-tab="implants">Имплантация</button>
+                <button class="tab-button" data-tab="prosthetics">Протезирование</button>
+            </div>
+            <div class="prices-content">
+                <!-- Контент будет добавляться динамически -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Свяжитесь с нами</h2>
+            <div class="contact-grid">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше имя" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Телефон" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Сообщение" class="form-input"></textarea>
+                    </div>
+                    <button type="submit" class="button-primary">Отправить</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h3>Адрес</h3>
+                        <p>Тбилиси, ул. Коте Марджанишвили, 30</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Телефон</h3>
+                        <p><a href="tel:+995599510741">+995 599 510 741</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Email</h3>
+                        <p><a href="mailto:dentistge@gmail.com">dentistge@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="/images/logo.svg" alt="Dental Georgia" width="120" height="32">
+                    <img src="/images/logo.svg" alt="Dentist GE" width="120">
                     <p>Ваша улыбка - наша забота</p>
                 </div>
-
-                <nav class="footer-nav">
-                    <h3>Навигация</h3>
-                    <ul>
-                        <li><a href="#services">Услуги</a></li>
-                        <li><a href="#prices">Цены</a></li>
-                        <li><a href="#about">О нас</a></li>
-                        <li><a href="#contact">Контакты</a></li>
-                    </ul>
-                </nav>
-
-                <div class="footer-contact">
-                    <h3>Контакты</h3>
-                    <address>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Навигация</h4>
+                        <a href="#services">Услуги</a>
+                        <a href="#prices">Цены</a>
+                        <a href="#about">О нас</a>
+                        <a href="#contact">Контакты</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Контакты</h4>
                         <p>Тбилиси, ул. Коте Марджанишвили, 30</p>
                         <p>+995 599 510 741</p>
                         <p>dentistge@gmail.com</p>
-                    </address>
+                    </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2024 Dental Georgia. Все права защищены.</p>
-                <div class="footer-links">
+                <p>&copy; 2024 Dentist GE. Все права защищены.</p>
+                <div class="footer-legal">
                     <a href="/privacy">Политика конфиденциальности</a>
                     <a href="/terms">Условия использования</a>
                 </div>
@@ -232,12 +178,12 @@
     </footer>
 
     <!-- Cookie Consent -->
-    <div class="cookie-consent" role="alert" aria-live="polite">
+    <div class="cookie-consent" id="cookieConsent">
         <p>Мы используем файлы cookie для улучшения вашего опыта.</p>
-        <button class="button button-secondary accept-cookies">Принять</button>
+        <button class="button-secondary" id="acceptCookies">Принять</button>
     </div>
 
     <!-- Scripts -->
-    <script src="/js/main.js" defer></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

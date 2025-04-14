@@ -5,13 +5,46 @@ const $$ = selector => document.querySelectorAll(selector);
 // Mobile menu
 const initMobileMenu = () => {
     const menuButton = $('.nav-toggle');
-    const menu = $('.nav-menu');
+    const menu = $('.nav-links');
 
-    menuButton.addEventListener('click', () => {
+    menuButton?.addEventListener('click', () => {
         const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
         menuButton.setAttribute('aria-expanded', !isExpanded);
         menu.classList.toggle('active');
     });
+};
+
+// Animate statistics
+const animateStats = () => {
+    const stats = $$('.stat-number');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const value = parseInt(target.dataset.value);
+                animateValue(target, 0, value, 2000);
+                observer.unobserve(target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => observer.observe(stat));
+};
+
+const animateValue = (element, start, end, duration) => {
+    let current = start;
+    const range = end - start;
+    const increment = end > start ? 1 : -1;
+    const stepTime = Math.abs(Math.floor(duration / range));
+
+    const timer = setInterval(() => {
+        current += increment;
+        element.textContent = current + (element.dataset.suffix || '');
+        if (current === end) {
+            clearInterval(timer);
+        }
+    }, stepTime);
 };
 
 // Smooth scroll
@@ -21,9 +54,13 @@ const initSmoothScroll = () => {
             e.preventDefault();
             const target = $(anchor.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const headerOffset = 100;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
@@ -32,203 +69,88 @@ const initSmoothScroll = () => {
 
 // Form validation and submission
 const initContactForm = () => {
-    const form = $('.contact-form');
-    if (!form) return;
+    const form = $('#contactForm');
 
-    const validateField = (field) => {
-        const value = field.value.trim();
-        const name = field.name;
-        let error = '';
-
-        switch (name) {
-            case 'name':
-                if (!value) error = 'Пожалуйста, введите ваше имя';
-                break;
-            case 'phone':
-                const phoneRegex = /^\+?[\d\s-]{10,}$/;
-                if (!phoneRegex.test(value)) error = 'Пожалуйста, введите корректный номер телефона';
-                break;
-            case 'email':
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (value && !emailRegex.test(value)) error = 'Пожалуйста, введите корректный email';
-                break;
-        }
-
-        return error;
-    };
-
-    const showFieldError = (field, error) => {
-        const errorElement = field.parentElement.querySelector('.error-message');
-        if (error) {
-            if (!errorElement) {
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message';
-                errorDiv.textContent = error;
-                field.parentElement.appendChild(errorDiv);
-            } else {
-                errorElement.textContent = error;
-            }
-            field.setAttribute('aria-invalid', 'true');
-        } else {
-            if (errorElement) errorElement.remove();
-            field.removeAttribute('aria-invalid');
-        }
-    };
-
-    form.addEventListener('submit', async (e) => {
+    form?.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        let isValid = true;
         const formData = new FormData(form);
-
-        // Validate all fields
-        form.querySelectorAll('input, textarea').forEach(field => {
-            const error = validateField(field);
-            showFieldError(field, error);
-            if (error) isValid = false;
-        });
-
-        if (!isValid) return;
+        const data = Object.fromEntries(formData.entries());
 
         try {
-            const submitButton = form.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Отправка...';
+            // Here you would typically send the data to your server
+            console.log('Form submitted:', data);
 
-            // Здесь должен быть ваш код отправки формы на сервер
-            await new Promise(resolve => setTimeout(resolve, 1000)); // Имитация отправки
-
-            // Показываем сообщение об успехе
-            showNotification('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success');
+            // Show success message
+            alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
             form.reset();
         } catch (error) {
-            showNotification('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
-        } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Отправить';
+            console.error('Error submitting form:', error);
+            alert('Произошла ошибка. Пожалуйста, попробуйте позже.');
         }
     });
-};
-
-// Notification system
-const showNotification = (message, type = 'success') => {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
-
-    document.body.appendChild(notification);
-
-    // Trigger animation
-    requestAnimationFrame(() => {
-        notification.classList.add('show');
-    });
-
-    // Remove after 5 seconds
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => notification.remove(), 300);
-    }, 5000);
 };
 
 // Cookie consent
 const initCookieConsent = () => {
-    const cookieConsent = $('.cookie-consent');
-    const acceptButton = $('.accept-cookies');
+    const cookieConsent = $('#cookieConsent');
+    const acceptButton = $('#acceptCookies');
 
-    if (localStorage.getItem('cookieConsent')) {
+    if (localStorage.getItem('cookiesAccepted')) {
         cookieConsent?.remove();
         return;
     }
 
     acceptButton?.addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'true');
-        cookieConsent.remove();
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieConsent?.remove();
     });
 };
 
-// Intersection Observer for animations
-const initAnimations = () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('aos-animate');
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
+// Sticky header
+const initStickyHeader = () => {
+    const header = $('.header');
+    let lastScroll = 0;
 
-    $$('[data-aos]').forEach(element => {
-        observer.observe(element);
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll <= 0) {
+            header.classList.remove('scroll-up');
+            return;
+        }
+
+        if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+            header.classList.remove('scroll-up');
+            header.classList.add('scroll-down');
+        } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+            header.classList.remove('scroll-down');
+            header.classList.add('scroll-up');
+        }
+
+        lastScroll = currentScroll;
     });
 };
 
-// Initialize everything when DOM is ready
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initSmoothScroll();
     initContactForm();
     initCookieConsent();
-    initAnimations();
+    initStickyHeader();
+    animateStats();
 });
-
-// Handle service worker for PWA
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(error => {
-            console.error('ServiceWorker registration failed:', error);
-        });
-    });
-}
 
 // Lazy loading images
 if ('loading' in HTMLImageElement.prototype) {
-    $$('img[loading="lazy"]').forEach(img => {
+    const images = $$('img[loading="lazy"]');
+    images.forEach(img => {
         img.src = img.dataset.src;
     });
 } else {
     // Fallback for browsers that don't support lazy loading
     const script = document.createElement('script');
-    script.src = '/js/lazysizes.min.js';
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
     document.body.appendChild(script);
 }
-// Добавить в main.js
-
-// Плавная анимация при скролле
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    elements.forEach(element => observer.observe(element));
-};
-
-// Анимация чисел
-const animateNumbers = () => {
-    const numberElements = document.querySelectorAll('.feature-number');
-
-    numberElements.forEach(element => {
-        const target = parseInt(element.getAttribute('data-target'));
-        let current = 0;
-
-        const increment = target / 50;
-
-        const updateNumber = () => {
-            if (current < target) {
-                current += increment;
-                element.textContent = Math.ceil(current);
-                requestAnimationFrame(updateNumber);
-            } else {
-                element.textContent = target;
-            }
-        };
-
-        updateNumber();
-    });
-};
