@@ -192,3 +192,43 @@ if ('loading' in HTMLImageElement.prototype) {
     script.src = '/js/lazysizes.min.js';
     document.body.appendChild(script);
 }
+// Добавить в main.js
+
+// Плавная анимация при скролле
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    elements.forEach(element => observer.observe(element));
+};
+
+// Анимация чисел
+const animateNumbers = () => {
+    const numberElements = document.querySelectorAll('.feature-number');
+
+    numberElements.forEach(element => {
+        const target = parseInt(element.getAttribute('data-target'));
+        let current = 0;
+
+        const increment = target / 50;
+
+        const updateNumber = () => {
+            if (current < target) {
+                current += increment;
+                element.textContent = Math.ceil(current);
+                requestAnimationFrame(updateNumber);
+            } else {
+                element.textContent = target;
+            }
+        };
+
+        updateNumber();
+    });
+};
