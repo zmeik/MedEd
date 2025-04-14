@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedEd</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>MedEd</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Главная</a></li>
+                    <li><a href="{{ url_for('index') }}#about">О проекте</a></li>
+                    <li><a href="{{ url_for('molecular_animation') }}">Молекулярная анимация</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Проект молекулярной анимации</h2>
+            <p>Описание проекта, его цели и функции.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h3>Ключевая информация для анализа</h3>
+            <ul>
+                <li>Основные файлы текущего проекта</li>
+                <li>Цели нового проекта</li>
+                <li>Технические требования</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MedEd. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

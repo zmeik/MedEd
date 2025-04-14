@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Молекулярная анимация | MedEd</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Молекулярная анимация</h1>
+        <div id="mol3d-container" style="width: 600px; height: 400px;"></div>
+        <label for="hydrogen-radius">Радиус атомов водорода:</label>
+        <input type="range" id="hydrogen-radius" min="0.1" max="1" step="0.1" value="0.4">
+        <button id="update-viewer">Обновить</button>
+    </div>
+    <script src="molecular-animation.js"></script>
+</body>
+</html>
