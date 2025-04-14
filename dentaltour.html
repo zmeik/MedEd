@@ -3,506 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Стоматологический туризм в Грузии | Качественное лечение по доступным ценам</title>
-    <link rel="stylesheet" href="dentaltour.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Dental Georgia | Премиальная стоматология в Грузии</title>
+
+    <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- GSAP для анимаций -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Locomotive Scroll для плавного скролла -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header>
-        <div class="container">
+    <!-- Навигация -->
+    <nav class="nav-container">
+        <div class="nav-content">
             <div class="logo">
-                <h1>Dental Georgia</h1>
+                <svg><!-- Ваш SVG логотип --></svg>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#why-georgia">Почему Грузия</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#prices">Цены</a></li>
-                    <li><a href="#process">Как это работает</a></li>
-                    <li><a href="#testimonials">Отзывы</a></li>
-                    <li><a href="#contact" class="nav-cta">Связаться</a></li>
-                </ul>
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
+            <div class="nav-links">
+                <a href="#services" class="nav-link">Услуги</a>
+                <a href="#process" class="nav-link">Процесс</a>
+                <a href="#prices" class="nav-link">Цены</a>
+                <a href="#contact" class="nav-button">Связаться</a>
+            </div>
+            <div class="nav-mobile">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
                 </div>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Главный баннер -->
+    <!-- Главный экран -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Стоматологический туризм в Грузии</h2>
-                <h3>Качественное лечение по ценам на 60-70% ниже европейских</h3>
-                <p>Современное оборудование, сертифицированные специалисты и уникальный отдых в одной из самых гостеприимных стран мира</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Получить консультацию</a>
-                    <a href="#prices" class="btn btn-secondary">Узнать цены</a>
-                </div>
-                <div class="hero-features">
-                    <div class="feature">
-                        <i class="fas fa-certificate"></i>
-                        <span>Международные стандарты</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-tooth"></i>
-                        <span>Современные технологии</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-wallet"></i>
-                        <span>Доступные цены</span>
-                    </div>
-                </div>
+        <div class="hero-content">
+            <h1 class="gradient-text">Премиальная стоматология в Грузии</h1>
+            <p class="hero-subtitle">Современные технологии и европейский сервис по доступным ценам</p>
+            <div class="hero-cta">
+                <a href="#contact" class="primary-button">
+                    <span>Получить консультацию</span>
+                    <svg><!-- Иконка стрелки --></svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero-features">
+            <div class="feature-card">
+                <span class="feature-number">60%</span>
+                <p>экономия на лечении</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-number">15+</span>
+                <p>лет опыта</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-number">5000+</span>
+                <p>довольных клиентов</p>
             </div>
         </div>
     </section>
 
-    <!-- Почему Грузия -->
-    <section id="why-georgia" class="why-georgia">
-        <div class="container">
-            <h2>Почему стоит выбрать Грузию для стоматологического лечения</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <h3>Экономия до 70%</h3>
-                    <p>Стоимость стоматологических услуг в Грузии в 2-3 раза ниже, чем в Европе и США, при сохранении высокого качества</p>
+    <!-- Горизонтальный скролл услуг -->
+    <section class="services-horizontal" data-scroll-section>
+        <div class="services-container">
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="implants.jpg" alt="Имплантация">
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <h3>Квалифицированные врачи</h3>
-                    <p>Наши стоматологи имеют международные сертификаты и регулярно проходят обучение в ведущих клиниках мира</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Современное оборудование</h3>
-                    <p>Клиники оснащены новейшим оборудованием от ведущих производителей Европы и США</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-plane"></i>
-                    </div>
-                    <h3>Удобная логистика</h3>
-                    <p>Прямые рейсы из многих городов Европы и Азии, безвизовый режим для граждан более 90 стран</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-mountain"></i>
-                    </div>
-                    <h3>Уникальный отдых</h3>
-                    <p>Совместите лечение с отдыхом в стране с богатой историей, вкусной кухней и потрясающей природой</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <h3>Языковая поддержка</h3>
-                    <p>Обслуживание на русском, английском и других языках для комфортной коммуникации</p>
-                </div>
+                <h3>Имплантация</h3>
+                <p>Премиальные импланты от ведущих производителей</p>
+                <a href="#" class="service-link">
+                    <span>Подробнее</span>
+                    <svg><!-- Иконка --></svg>
+                </a>
             </div>
+            <!-- Другие услуги -->
         </div>
     </section>
 
-    <!-- Услуги -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Наши услуги</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/400x300" alt="Имплантация зубов">
-                    <h3>Имплантация зубов</h3>
-                    <p>Установка имплантатов премиум-класса от ведущих производителей: Straumann, Nobel Biocare, MIS</p>
-                    <a href="#contact" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/400x300" alt="Протезирование">
-                    <h3>Протезирование</h3>
-                    <p>Изготовление коронок, мостов и протезов с использованием современных материалов и технологий</p>
-                    <a href="#contact" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/400x300" alt="Эстетическая стоматология">
-                    <h3>Эстетическая стоматология</h3>
-                    <p>Виниры, отбеливание, реставрация зубов для создания идеальной улыбки</p>
-                    <a href="#contact" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/400x300" alt="Лечение зубов">
-                    <h3>Лечение зубов</h3>
-                    <p>Современные методы лечения кариеса, пульпита и других заболеваний зубов</p>
-                    <a href="#contact" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/400x300" alt="Ортодонтия">
-                    <h3>Ортодонтия</h3>
-                    <p>Исправление прикуса с помощью брекетов и элайнеров для детей и взрослых</p>
-                    <a href="#contact" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/400x300" alt="Комплексная диагностика">
-                    <h3>Комплексная диагностика</h3>
-                    <p>3D-диагностика, цифровые снимки и полное обследование полости рта</p>
-                    <a href="#contact" class="service-link">Узнать больше <i class="fas fa-arrow-right"></i></a>
-                </div>
+    <!-- Процесс работы -->
+    <section class="process-section" data-scroll-section>
+        <div class="process-steps">
+            <div class="step" data-scroll data-scroll-speed="2">
+                <div class="step-number">01</div>
+                <h3>Онлайн консультация</h3>
+                <p>Детальное обсуждение вашего случая и составление предварительного плана</p>
             </div>
+            <!-- Другие шаги -->
         </div>
     </section>
 
-    <!-- Цены -->
-    <section id="prices" class="prices">
-        <div class="container">
-            <h2>Наши цены</h2>
-            <p class="section-description">Стоимость услуг в Грузии значительно ниже европейских при сохранении высокого качества</p>
-
+    <!-- Интерактивный прайс -->
+    <section class="prices-section" data-scroll-section>
+        <div class="price-calculator">
+            <div class="calculator-options">
+                <!-- Интерактивные опции выбора услуг -->
+            </div>
             <div class="price-comparison">
-                <div class="price-table">
-                    <div class="price-header">
-                        <h3>Услуга</h3>
-                        <h3>Грузия</h3>
-                        <h3>Европа</h3>
-                        <h3>Экономия</h3>
-                    </div>
-                    <div class="price-row">
-                        <div>Имплантат "под ключ"</div>
-                        <div>от 700€</div>
-                        <div>от 2000€</div>
-                        <div>до 65%</div>
-                    </div>
-                    <div class="price-row">
-                        <div>Керамическая коронка</div>
-                        <div>от 200€</div>
-                        <div>от 600€</div>
-                        <div>до 67%</div>
-                    </div>
-                    <div class="price-row">
-                        <div>Винир E.max</div>
-                        <div>от 250€</div>
-                        <div>от 800€</div>
-                        <div>до 69%</div>
-                    </div>
-                    <div class="price-row">
-                        <div>Лечение кариеса</div>
-                        <div>от 50€</div>
-                        <div>от 150€</div>
-                        <div>до 67%</div>
-                    </div>
-                    <div class="price-row">
-                        <div>Профессиональная чистка</div>
-                        <div>от 60€</div>
-                        <div>от 180€</div>
-                        <div>до 67%</div>
-                    </div>
+                <div class="price-card europe">
+                    <h4>Цена в Европе</h4>
+                    <span class="price">€2000</span>
                 </div>
-            </div>
-
-            <div class="price-note">
-                <p>* Указанные цены являются ориентировочными. Точная стоимость определяется после консультации и зависит от сложности случая.</p>
-                <a href="#contact" class="btn btn-primary">Получить индивидуальный расчет</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Как это работает -->
-    <section id="process" class="process">
-        <div class="container">
-            <h2>Как организовано лечение</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Консультация онлайн</h3>
-                        <p>Отправьте нам снимки и опишите проблему. Наши специалисты проведут предварительную консультацию и составят план лечения.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Планирование поездки</h3>
-                        <p>Мы поможем спланировать даты визита, забронировать жилье и организовать трансфер из аэропорта.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Диагностика и лечение</h3>
-                        <p>По прибытии в Грузию вы пройдете полную диагностику, после чего начнется лечение согласно утвержденному плану.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Отдых и восстановление</h3>
-                        <p>Между процедурами у вас будет время для отдыха и знакомства с Грузией. Мы предложим экскурсии и развлечения.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Завершение лечения</h3>
-                        <p>После завершения всех процедур вы получите полную документацию и рекомендации по уходу.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">6</div>
-                    <div class="step-content">
-                        <h3>Последующее наблюдение</h3>
-                        <p>Мы остаемся на связи после вашего возвращения домой и проводим онлайн-консультации при необходимости.</p>
-                    </div>
+                <div class="price-card georgia active">
+                    <h4>Цена в Грузии</h4>
+                    <span class="price">€800</span>
+                    <span class="savings">-60%</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Отзывы -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2>Отзывы наших пациентов</h2>
-            <div class="testimonials-slider">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"Я очень доволен результатом имплантации в Грузии. Качество на высшем уровне, а цена в три раза ниже, чем предлагали в Москве. Плюс удалось посетить Тбилиси и Батуми!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/80x80" alt="Александр, 45 лет">
-                        <div>
-                            <h4>Александр, 45 лет</h4>
-                            <p>Москва, Россия</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"Установка виниров прошла безболезненно и быстро. Результат превзошел все ожидания! Врачи очень внимательные, клиника оснащена современным оборудованием."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/80x80" alt="Елена, 38 лет">
-                        <div>
-                            <h4>Елена, 38 лет</h4>
-                            <p>Киев, Украина</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"Приехал в Грузию для комплексного лечения зубов. Сэкономил около 4000 евро по сравнению с ценами в Германии. При этом качество работы на высочайшем уровне!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/80x80" alt="Михаил, 52 года">
-                        <div>
-                            <h4>Михаил, 52 года</h4>
-                            <p>Берлин, Германия</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-controls">
-                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
-                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Наши клиники -->
-    <section class="clinics">
-        <div class="container">
-            <h2>Наши клиники</h2>
-            <div class="clinics-grid">
-                <div class="clinic-card">
-                    <img src="https://via.placeholder.com/400x300" alt="Клиника в Тбилиси">
-                    <h3>Тбилиси</h3>
-                    <p>Современная клиника в центре города с полным спектром стоматологических услуг</p>
-                    <div class="clinic-address">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>ул. Шота Руставели, 42</p>
-                    </div>
-                </div>
-                <div class="clinic-card">
-                    <img src="https://via.placeholder.com/400x300" alt="Клиника в Батуми">
-                    <h3>Батуми</h3>
-                    <p>Клиника на побережье Черного моря, совмещающая лечение с отдыхом</p>
-                    <div class="clinic-address">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>ул. Горгиладзе, 88</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Контакты -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Свяжитесь с нами</h2>
+    <!-- Форма обратной связи -->
+    <section class="contact-section" data-scroll-section>
+        <div class="contact-container">
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Телефон</h3>
-                            <p>+995 XXX XXX XXX</p>
-                            <p>+995 XXX XXX XXX</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>info@dental-georgia.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Адрес</h3>
-                            <p>Тбилиси, ул. Шота Руставели, 42</p>
-                        </div>
-                    </div>
-                    <div class="social-media">
-                        <h3>Мы в социальных сетях</h3>
-                        <div class="social-icons">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#"><i class="fab fa-telegram"></i></a>
-                        </div>
-                    </div>
-                </div>
+                <h2>Начните путь к здоровой улыбке</h2>
                 <form class="contact-form">
-                    <h3>Получить консультацию</h3>
                     <div class="form-group">
-                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="text" required>
+                        <label>Ваше имя</label>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Ваш Email" required>
+                        <input type="tel" required>
+                        <label>Телефон</label>
                     </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Ваш телефон" required>
-                    </div>
-                    <div class="form-group">
-                        <select required>
-                            <option value="" disabled selected>Выберите услугу</option>
-                            <option value="implantation">Имплантация</option>
-                            <option value="prosthetics">Протезирование</option>
-                            <option value="aesthetic">Эстетическая стоматология</option>
-                            <option value="treatment">Лечение зубов</option>
-                            <option value="orthodontics">Ортодонтия</option>
-                            <option value="other">Другое</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Ваше сообщение" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Отправить запрос</button>
+                    <button type="submit" class="submit-button">
+                        <span>Отправить</span>
+                        <svg><!-- Иконка --></svg>
+                    </button>
                 </form>
             </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-        <div class="container">
-            <h2>Часто задаваемые вопросы</h2>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>Сколько времени занимает лечение в Грузии?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Продолжительность лечения зависит от его типа и сложности. Например, установка имплантатов может потребовать нескольких визитов с интервалом в 3-6 месяцев. Простое лечение, такое как установка коронок или виниров, обычно занимает 5-7 дней.</p>
-                    </div>
+            <div class="contact-info">
+                <div class="info-item">
+                    <svg><!-- Иконка локации --></svg>
+                    <p>Тбилиси, ул. Коте Марджанишвили, 30</p>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>Нужна ли виза для поездки в Грузию?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Граждане России, Украины, Беларуси, стран ЕС и многих других государств могут находиться в Грузии без визы до 365 дней. Для въезда достаточно иметь действующий загранпаспорт.</p>
-                    </div>
+                <div class="info-item">
+                    <svg><!-- Иконка телефона --></svg>
+                    <p>+995 599 510 741</p>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>Какие гарантии предоставляются на лечение?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Мы предоставляем гарантию на все виды лечения. Срок гарантии зависит от типа процедуры: на имплантаты - до 10 лет, на коронки и виниры - до 5 лет, на пломбы - до 2 лет. Все условия гарантии фиксируются в договоре.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>Как организовано проживание во время лечения?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Мы помогаем с бронированием отелей или апартаментов различных категорий в зависимости от ваших предпочтений и бюджета. Также возможна организация трансфера из аэропорта и транспорта для перемещения по городу.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>Можно ли совместить лечение с отдыхом?</h3>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Да, это одно из преимуществ стоматологического туризма в Грузии. Между процедурами у вас будет время для отдыха и экскурсий. Мы можем организовать для вас туры по Тбилиси, поездки в Кахетию (винный регион), Батуми или горные курорты.</p>
-                    </div>
+                <div class="info-item">
+                    <svg><!-- Иконка email --></svg>
+                    <p>dentistge@gmail.com</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- CTA -->
-    <section class="cta">
-        <div class="container">
-            <h2>Начните путь к здоровой улыбке уже сегодня</h2>
-            <p>Получите бесплатную консультацию и индивидуальный план лечения</p>
-            <a href="#contact" class="btn btn-primary">Связаться с нами</a>
-        </div>
-    </section>
-
-    <!-- Подвал сайта -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Dental Georgia</h3>
-                    <p>Стоматологический туризм в Грузии</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Навигация</h4>
-                    <ul>
-                        <li><a href="#why-georgia">Почему Грузия</a></li>
-                        <li><a href="#services">Услуги</a></li>
-                        <li><a href="#prices">Цены</a></li>
-                        <li><a href="#process">Как это работает</a></li>
-                        <li><a href="#testimonials">Отзывы</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Контакты</h4>
-                    <p><i class="fas fa-phone"></i> +995 599 510 741</p>
-                    <p><i class="fas fa-envelope"></i> dentistge@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Тбилиси, ул. Коте Марджанишвили, 30</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Dental Georgia. Все права защищены.</p>
-                <p>Разработано <a href="https://dentist.ge" target="_blank">Dentist.ge</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="dental-tourism.js"></script>
 </body>
 </html>

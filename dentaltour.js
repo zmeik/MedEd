@@ -62,3 +62,56 @@ contactForm.addEventListener('submit', (e) => {
     alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
     contactForm.reset();
 });
+// Инициализация плавного скролла
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    smartphone: {
+        smooth: true
+    },
+    tablet: {
+        smooth: true
+    }
+});
+
+// GSAP анимации
+gsap.registerPlugin(ScrollTrigger);
+
+// Анимация заголовка
+gsap.from('.gradient-text', {
+    duration: 1.5,
+    y: 100,
+    opacity: 0,
+    ease: 'power4.out'
+});
+
+// Горизонтальный скролл для услуг
+gsap.to('.services-container', {
+    x: () => -(document.querySelector('.services-container').scrollWidth - window.innerWidth),
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.services-horizontal',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1,
+        pin: true
+    }
+});
+
+// Параллакс эффект для карточек
+document.querySelectorAll('.service-item').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateX = (y - rect.height / 2) / 20;
+        const rotateY = (x - rect.width / 2) / 20;
+
+        card.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
+});
