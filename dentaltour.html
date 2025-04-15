@@ -7,20 +7,23 @@
     <meta name="keywords" content="стоматология, Грузия, имплантация, лечение зубов, стоматологический туризм">
     <meta property="og:title" content="Dentist GE | Премиальная стоматология в Грузии">
     <meta property="og:description" content="Современные технологии и европейский сервис по доступным ценам">
-    <meta property="og:image" content="/images/og-image.jpg">
+    <meta property="og:image" content="https://zmeik.github.io/MedEd/images/og-image.jpg">
     <meta property="og:url" content="https://dentist.ge">
 
     <title>Dentist GE | Премиальная стоматология в Грузии</title>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="https://zmeik.github.io/MedEd/images/favicon.svg">
+    <link rel="apple-touch-icon" href="https://zmeik.github.io/MedEd/images/apple-touch-icon.png">
 
     <!-- Preload критических ресурсов -->
-    <link rel="preload" href="/fonts/SpaceGrotesk-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" as="style">
     <link rel="preload" href="https://zmeik.github.io/MedEd/dentaltour.css" as="style">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Шрифты -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <!-- Стили -->
     <link rel="stylesheet" href="https://zmeik.github.io/MedEd/dentaltour.css">
@@ -28,8 +31,8 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav-container">
-            <div class="container nav-content">
+        <div class="container">
+            <nav class="nav-content">
                 <a href="/" class="logo">
                     <img src="https://zmeik.github.io/MedEd/images/logo.svg" alt="Dentist GE" width="150">
                 </a>
@@ -37,42 +40,105 @@
                     <span class="hamburger"></span>
                 </button>
                 <div class="nav-links">
-                    <a href="#services">Услуги</a>
-                    <a href="#prices">Цены</a>
-                    <a href="#about">О нас</a>
-                    <a href="#contact">Связаться</a>
-                    <a href="tel:+995599510741" class="phone-link">+995 599 510 741</a>
+                    <a href="#services" class="nav-link">Услуги</a>
+                    <a href="#prices" class="nav-link">Цены</a>
+                    <a href="#reviews" class="nav-link">Отзывы</a>
+                    <a href="#contact" class="nav-link">Контакты</a>
+                    <a href="tel:+995599510741" class="phone-link">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        +995 599 510 741
+                    </a>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="container hero-container">
             <div class="hero-content">
-                <h1>Премиальная стоматология в Грузии</h1>
-                <p class="hero-subtitle">Современные технологии и европейский сервис по доступным ценам</p>
-                <a href="#contact" class="button-primary">Получить консультацию</a>
+                <h1 class="hero-title">Ваша улыбка — наше искусство</h1>
+                <p class="hero-subtitle">Премиальная стоматология в Грузии по доступным ценам</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="button-primary">Записаться на консультацию</a>
+                    <a href="#services" class="button-outline">Узнать больше</a>
+                </div>
+                <div class="hero-benefits">
+                    <div class="hero-benefit">
+                        <i class="fa-solid fa-tooth"></i>
+                        <span>Современные технологии</span>
+                    </div>
+                    <div class="hero-benefit">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span>Европейские стандарты</span>
+                    </div>
+                    <div class="hero-benefit">
+                        <i class="fa-solid fa-wallet"></i>
+                        <span>Доступные цены</span>
+                    </div>
+                </div>
             </div>
+            <div class="hero-image">
+                <div class="hero-image-container">
+                    <img src="https://zmeik.github.io/MedEd/images/hero-image.jpg" alt="Стоматология в Грузии" class="main-image">
+                    <div class="floating-card card-1">
+                        <div class="icon"><i class="fa-solid fa-users"></i></div>
+                        <div class="text">
+                            <div class="title">5000+</div>
+                            <div class="subtitle">довольных клиентов</div>
+                        </div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="icon"><i class="fa-solid fa-star"></i></div>
+                        <div class="text">
+                            <div class="title">4.9</div>
+                            <div class="subtitle">рейтинг клиники</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-overlay">
+            <div class="overlay-shape shape-1"></div>
+            <div class="overlay-shape shape-2"></div>
         </div>
     </section>
 
     <!-- Stats Section -->
     <section class="stats">
         <div class="container">
+            <div class="section-intro">
+                <span class="section-tag">Преимущества</span>
+                <h2 class="section-title">Почему выбирают нас</h2>
+            </div>
             <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" data-value="60">0</div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <div class="stat-number" data-value="60" data-suffix="%">0%</div>
                     <div class="stat-label">экономия на лечении</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
                     <div class="stat-number" data-value="15">0</div>
                     <div class="stat-label">лет опыта</div>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-user-group"></i>
+                    </div>
                     <div class="stat-number" data-value="5000">0</div>
                     <div class="stat-label">довольных клиентов</div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-earth-europe"></i>
+                    </div>
+                    <div class="stat-number" data-value="30">0</div>
+                    <div class="stat-label">стран клиентов</div>
                 </div>
             </div>
         </div>
@@ -81,15 +147,48 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2>Наши услуги</h2>
+            <div class="section-intro">
+                <span class="section-tag">Услуги</span>
+                <h2 class="section-title">Наши услуги</h2>
+                <p class="section-description">Мы предлагаем полный спектр стоматологических услуг с использованием новейших технологий и материалов от ведущих мировых производителей</p>
+            </div>
+
             <div class="services-grid">
-                <div class="service-card">
-                    <img src="/images/services/implants.jpg" alt="Имплантация">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-tooth"></i>
+                    </div>
                     <h3>Имплантация зубов</h3>
                     <p>Установка премиальных имплантов от ведущих производителей</p>
-                    <a href="#contact" class="button-secondary">Узнать больше</a>
+                    <a href="#contact" class="service-link">Подробнее <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                <!-- Добавьте другие карточки услуг -->
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-teeth"></i>
+                    </div>
+                    <h3>Протезирование</h3>
+                    <p>Современные протезы, которые неотличимы от настоящих зубов</p>
+                    <a href="#contact" class="service-link">Подробнее <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3>Эстетическая стоматология</h3>
+                    <p>Виниры, отбеливание и другие процедуры для идеальной улыбки</p>
+                    <a href="#contact" class="service-link">Подробнее <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-syringe"></i>
+                    </div>
+                    <h3>Лечение зубов</h3>
+                    <p>Безболезненное лечение кариеса и других заболеваний зубов</p>
+                                        <a href="#contact" class="service-link">Подробнее <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </section>
@@ -97,13 +196,218 @@
     <!-- Prices Section -->
     <section id="prices" class="prices">
         <div class="container">
-            <h2>Цены на услуги</h2>
+            <div class="section-intro">
+                <span class="section-tag">Цены</span>
+                <h2 class="section-title">Наши цены</h2>
+                <p class="section-description">Мы предлагаем качественное лечение по доступным ценам. Экономия в сравнении с европейскими клиниками до 60%</p>
+            </div>
+
             <div class="prices-tabs">
                 <button class="tab-button active" data-tab="implants">Имплантация</button>
                 <button class="tab-button" data-tab="prosthetics">Протезирование</button>
+                <button class="tab-button" data-tab="aesthetic">Эстетика</button>
+                <button class="tab-button" data-tab="treatment">Лечение</button>
             </div>
+
             <div class="prices-content">
-                <!-- Контент будет добавляться динамически -->
+                <!-- JS will populate this content -->
+            </div>
+
+            <div class="prices-note" data-aos="fade-up">
+                <div class="note-icon">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div class="note-text">
+                    <p>Цены указаны ориентировочно и могут отличаться в зависимости от сложности случая. Точную стоимость лечения можно узнать после консультации.</p>
+                </div>
+            </div>
+
+            <div class="prices-cta" data-aos="fade-up">
+                <a href="#contact" class="button-primary">Получить бесплатную консультацию</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-tag">Отзывы</span>
+                <h2 class="section-title">Что о нас говорят клиенты</h2>
+            </div>
+
+            <div class="reviews-slider" data-aos="fade-up">
+                <button class="review-prev"><i class="fa-solid fa-arrow-left"></i></button>
+
+                <div class="reviews-container">
+                    <div class="reviews-track">
+                        <div class="review-card">
+                            <div class="review-content">
+                                <div class="review-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="review-text">Я прилетел из Москвы специально для протезирования. Поставили 3 импланта и коронки. Качество отличное, цена в 2 раза ниже, чем в Москве.</p>
+                            </div>
+                            <div class="review-author">
+                                <div class="author-avatar">
+                                    <img src="https://zmeik.github.io/MedEd/images/avatar-1.jpg" alt="Михаил">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Михаил</h4>
+                                    <p>Москва, Россия</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-content">
+                                <div class="review-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="review-text">Долго не решалась на импланты, но после консультации страхи ушли. Всё прошло безболезненно, результат превзошёл ожидания!</p>
+                            </div>
+                            <div class="review-author">
+                                <div class="author-avatar">
+                                    <img src="https://zmeik.github.io/MedEd/images/avatar-2.jpg" alt="Елена">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Елена</h4>
+                                    <p>Киев, Украина</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-content">
+                                <div class="review-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="review-text">Совместил отпуск в Грузии и лечение зубов. За ту же сумму, что платил бы дома только за лечение, получил и отпуск, и здоровые зубы.</p>
+                            </div>
+                            <div class="review-author">
+                                <div class="author-avatar">
+                                    <img src="https://zmeik.github.io/MedEd/images/avatar-3.jpg" alt="Александр">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Александр</h4>
+                                    <p>Варшава, Польша</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-content">
+                                <div class="review-stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                                <p class="review-text">Европейский уровень обслуживания и квалификации врачей. Выбрала самые современные материалы для виниров, результатом очень довольна.</p>
+                            </div>
+                            <div class="review-author">
+                                <div class="author-avatar">
+                                    <img src="https://zmeik.github.io/MedEd/images/avatar-4.jpg" alt="Анна">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Анна</h4>
+                                    <p>Берлин, Германия</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="review-next"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div class="reviews-cta" data-aos="fade-up">
+                <a href="#contact" class="button-primary">Записаться на консультацию</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Часто задаваемые вопросы</h2>
+            </div>
+
+            <div class="faq-grid" data-aos="fade-up">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Как долго я должен находиться в Грузии для лечения?</h3>
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Длительность пребывания зависит от типа лечения. Для имплантации обычно требуется два визита: первый на 5-7 дней для установки имплантов, второй через 3-6 месяцев на 5-7 дней для установки коронок. Для других процедур может потребоваться от 2 до 14 дней.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Какие гарантии вы предоставляете?</h3>
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Мы предоставляем письменную гарантию на все виды лечения: имплантация — 10 лет, протезирование — 5 лет, пломбы — 2 года. При соблюдении рекомендаций по уходу за полостью рта.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Можно ли совместить лечение с отдыхом?</h3>
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Конечно! Многие наши пациенты совмещают лечение с отдыхом в Грузии. По вашему желанию мы можем помочь организовать экскурсии, подобрать отель и составить культурную программу.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Из каких стран приезжают ваши пациенты?</h3>
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>К нам приезжают пациенты из России, Украины, Казахстана, Беларуси, стран Европы (Германия, Польша, Италия), а также из США, Канады и других стран. Мы работаем с международными пациентами более 10 лет.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Какие импланты вы используете?</h3>
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Мы используем премиальные импланты ведущих мировых производителей: Straumann (Швейцария), Nobel Biocare (Швеция), Alpha Bio (Израиль). Выбор системы имплантации зависит от клинического случая и бюджета пациента.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Как происходит консультация для иностранных пациентов?</h3>
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Первичная консультация проводится онлайн через WhatsApp или Zoom. Вы можете отправить нам панорамный снимок зубов, и наши специалисты подготовят предварительный план лечения и расчет стоимости.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -111,62 +415,154 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Свяжитесь с нами</h2>
+            <div class="section-intro">
+                <span class="section-tag">Контакты</span>
+                <h2 class="section-title">Свяжитесь с нами</h2>
+                <p class="section-description">Оставьте свои контактные данные, и мы свяжемся с вами для бесплатной консультации</p>
+            </div>
+
             <div class="contact-grid">
                 <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Ваше имя" required class="form-input">
+                    <div class="form-header">
+                        <h3>Запись на консультацию</h3>
                     </div>
+
                     <div class="form-group">
-                        <input type="tel" name="phone" placeholder="Телефон" required class="form-input">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" name="name" placeholder="Введите ваше имя" required class="form-input">
                     </div>
+
                     <div class="form-group">
-                        <textarea name="message" placeholder="Сообщение" class="form-input"></textarea>
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX" required class="form-input">
                     </div>
-                    <button type="submit" class="button-primary">Отправить</button>
+
+                    <div class="form-group">
+                        <label for="service">Интересующая услуга</label>
+                        <select id="service" name="service" class="form-input">
+                            <option value="">Выберите услугу</option>
+                            <option value="implants">Имплантация</option>
+                            <option value="prosthetics">Протезирование</option>
+                            <option value="aesthetic">Эстетическая стоматология</option>
+                            <option value="treatment">Лечение зубов</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" placeholder="Расскажите подробнее о вашем случае" class="form-input"></textarea>
+                    </div>
+
+                    <button type="submit" class="button-primary button-full">Отправить заявку</button>
+
+                    <div class="form-disclaimer">
+                        <p>Нажимая на кнопку, вы соглашаетесь с <a href="/privacy">политикой конфиденциальности</a></p>
+                    </div>
                 </form>
+
                 <div class="contact-info">
-                    <div class="info-item">
-                        <h3>Адрес</h3>
-                        <p>Тбилиси, ул. Коте Марджанишвили, 30</p>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Адрес</h3>
+                            <p>Тбилиси, ул. Коте Марджанишвили, 30</p>
+                            <a href="https://goo.gl/maps/UgAZB8VQu3ZXRKN66" target="_blank" class="info-link">Проложить маршрут <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <h3>Телефон</h3>
-                        <p><a href="tel:+995599510741">+995 599 510 741</a></p>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Телефон</h3>
+                            <p><a href="tel:+995599510741">+995 599 510 741</a></p>
+                            <a href="https://wa.me/995599510741" target="_blank" class="info-link">WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <h3>Email</h3>
-                        <p><a href="mailto:dentistge@gmail.com">dentistge@gmail.com</a></p>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p><a href="mailto:dentistge@gmail.com">dentistge@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Часы работы</h3>
+                            <p>Пн-Пт: 9:00 - 19:00</p>
+                            <p>Сб: 10:00 - 16:00</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.145073625588!2d44.79524597640909!3d41.70092098340891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440cd9f2a9455f%3A0x37049cf13a9d4102!2z0YPQuy4g0JrQvtGC0LUg0JzQsNGA0LXQttC90L3QsNGI0LLQuNC70LgsIDMwLCDQotCx0LjQu9C40YHQuA!5e0!3m2!1sru!2sge!4v1681876542299!5m2!1sru!2sge" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-main">
                 <div class="footer-brand">
-                    <img src="/images/ID_white.png" alt="Dentist GE" width="120">
-                    <p>Ваша улыбка - наша забота</p>
+                    <img src="https://zmeik.github.io/MedEd/images/logo-white.svg" alt="Dentist GE" class="footer-logo">
+                    <p>Премиальная стоматология в Грузии по доступным ценам</p>
+
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
                 </div>
+
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Навигация</h4>
-                        <a href="#services">Услуги</a>
-                        <a href="#prices">Цены</a>
-                        <a href="#about">О нас</a>
-                        <a href="#contact">Контакты</a>
+                        <ul>
+                            <li><a href="#services">Услуги</a></li>
+                            <li><a href="#prices">Цены</a></li>
+                            <li><a href="#reviews">Отзывы</a></li>
+                            <li><a href="#contact">Контакты</a></li>
+                        </ul>
                     </div>
+
+                    <div class="footer-column">
+                        <h4>Услуги</h4>
+                        <ul>
+                            <li><a href="#implants">Имплантация</a></li>
+                            <li><a href="#prosthetics">Протезирование</a></li>
+                            <li><a href="#aesthetic">Эстетическая стоматология</a></li>
+                            <li><a href="#treatment">Лечение зубов</a></li>
+                        </ul>
+                    </div>
+
                     <div class="footer-column">
                         <h4>Контакты</h4>
-                        <p>Тбилиси, ул. Коте Марджанишвили, 30</p>
-                        <p>+995 599 510 741</p>
-                        <p>dentistge@gmail.com</p>
+                        <div class="footer-contact">
+                            <p><i class="fa-solid fa-location-dot"></i> Тбилиси, ул. Коте Марджанишвили, 30</p>
+                            <p><i class="fa-solid fa-phone"></i> +995 599 510 741</p>
+                            <p><i class="fa-solid fa-envelope"></i> dentistge@gmail.com</p>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2024 Dentist GE. Все права защищены.</p>
                 <div class="footer-legal">
@@ -179,9 +575,25 @@
 
     <!-- Cookie Consent -->
     <div class="cookie-consent" id="cookieConsent">
-        <p>Мы используем файлы cookie для улучшения вашего опыта.</p>
-        <button class="button-secondary" id="acceptCookies">Принять</button>
+        <div class="cookie-content">
+            <div class="cookie-icon">
+                <i class="fa-solid fa-cookie-bite"></i>
+            </div>
+            <div class="cookie-text">
+                <h4>Мы используем cookies</h4>
+                <p>Мы используем файлы cookie для улучшения вашего опыта использования сайта.</p>
+            </div>
+        </div>
+        <div class="cookie-buttons">
+            <button class="button-outline" id="acceptCookies">Принять</button>
+            <button class="button-text">Настроить</button>
+        </div>
     </div>
+
+    <!-- Whatsapp Button -->
+    <a href="https://wa.me/995599510741" class="whatsapp-button" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <!-- Scripts -->
     <script src="https://zmeik.github.io/MedEd/dentaltour.js"></script>
